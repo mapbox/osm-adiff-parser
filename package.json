@@ -1,0 +1,19 @@
+{
+  "name": "osm-adiff-parser",
+  "version": "1.0.0",
+  "description": "Parse OSM augmented diffs to create JSON representation of changesets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mapbox/osm-adiff-parser.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapbox/osm-adiff-parser/issues"
+  },
+  "homepage": "https://github.com/mapbox/osm-adiff-parser#readme"
+}
