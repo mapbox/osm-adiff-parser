@@ -1,6 +1,6 @@
 {
   "name": "osm-adiff-parser",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Parse OSM augmented diffs to create JSON representation of changesets",
   "main": "index.js",
   "scripts": {
