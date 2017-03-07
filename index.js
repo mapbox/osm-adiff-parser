@@ -3,7 +3,7 @@ var expat = require('node-expat');
 
 // Returns elements grouped by changeset ID.
 
-function AugmentedDiffParser (xmlData, callback) {
+function AugmentedDiffParser (xmlData, changesetsFilter, callback) {
   var xmlParser = new expat.Parser('UTF-8');
   var currentAction = '';
   var currentElement = {};
@@ -19,10 +19,20 @@ function AugmentedDiffParser (xmlData, callback) {
   function endTag (symbol, attrs) {
     if (symbol === 'action') {
       var changeset = currentElement.changeset;
-      if (changesetMap[changeset]) {
-        changesetMap[changeset].push(currentElement);
+      if (changesetsFilter && changesetsFilter.length) {
+        if (changesetsFilter.indexOf(changeset) !== -1) {
+          if (changesetMap[changeset]) {
+            changesetMap[changeset].push(currentElement);
+          } else {
+            changesetMap[changeset] = [currentElement];
+          }
+        }
       } else {
-        changesetMap[changeset] = [currentElement];
+          if (changesetMap[changeset]) {
+            changesetMap[changeset].push(currentElement);
+          } else {
+            changesetMap[changeset] = [currentElement];
+          }
       }
     }
     if (symbol === 'osm') {
